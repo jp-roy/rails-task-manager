@@ -1,2 +1,4 @@
-<h2><%= @task.description %></h2>
-<p><%= @task.done %></p>
+  <h2><%= @task.title %></h2>
+  <p><%= @task.description %></p>
+  <p><%= @task.done %></p>
+  <%= link_to "Show tasks", tasks_path %>

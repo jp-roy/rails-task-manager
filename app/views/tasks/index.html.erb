@@ -1,8 +1,11 @@
 <h1><%= link_to "Create new", new_task_path %></h1>
 <% @tasks.each do |task| %>
-  <h2><%= link_to task.description, task_path(task) %></h2>
-  <p><%= task.done ? "OK !" : "To do" %></p>
-  <p><%= link_to "Delete", task_path(task),
-            method: :delete,
-            data: {confirm: "Are you sure?" } %></p>
-<% end %>
+  <div class="task">
+    <h2><%= link_to task.title, task_path(task) %></h2>
+    <p><%= task.done ? "Done !" : "To do" %></p>
+    <p><%= link_to "Edit", edit_task_path(task) %></p>
+    <p><%= link_to "Delete", task_path(task),
+              method: :delete,
+              data: {confirm: "Are you sure?" } %></p>
+    <% end %>
+  </div>
