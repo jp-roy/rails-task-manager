@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # patch 'tasks/:id' => 'tasks#update'
   # delete 'tasks/:id' => 'tasks#destroy'
 
-  resources :tasks
+  resources :tasks do
+    member do
+      get 'mark_as_done' => 'tasks#mark_as_done'
+    end
+  end
 
   root 'tasks#index'
 

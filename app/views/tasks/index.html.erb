@@ -1,11 +1,25 @@
-<h1><%= link_to "Create new", new_task_path %></h1>
-<% @tasks.each do |task| %>
-  <div class="task">
-    <h2><%= link_to task.title, task_path(task) %></h2>
-    <p><%= task.done ? "Done !" : "To do" %></p>
-    <p><%= link_to "Edit", edit_task_path(task) %></p>
-    <p><%= link_to "Delete", task_path(task),
+<div class="tasks text-center">
+  <h1>Welcome to the task manager à Jeanfil</h1>
+  <p><%= link_to "Create new", new_task_path %></p>
+  <div class="container text-center">
+    <div class="row">
+      <% @tasks.each do |task| %>
+        <div class="col-xs-12 col-sm-4 col-md-2">
+          <h1><%= link_to task.title, task_path(task) %></h1>
+          <ul class="list-inline">
+            <li>
+              <p><%= task.done ? "Done !" : "To do" %></p>
+            </li>
+            <li><p><%= link_to "Edit", edit_task_path(task) %></p>
+            </li>
+            <li><p><%= link_to "Delete", task_path(task),
               method: :delete,
               data: {confirm: "Are you sure?" } %></p>
-    <% end %>
+            </li>
+          </ul>
+          <%= link_to "Mark as done !", { :controller => :tasks, :action => :mark_as_done, :id => task }, { class: "btn btn-primary btn-lg", style: "width: 150px;" } %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
